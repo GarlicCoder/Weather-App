@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Weather Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div id="mainContainer">
+      <div id="top">
+        <div id="header">
+          <div id="timeContainer"><span id="currentDate"></span><span id="currentTime"></span>
+          </div>
+          <div id="rightHeader"> 
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="95px" width="95px" fill="var(--text)"><path d="M11,5V1h2V5H11Zm6.65,2.75l-1.4-1.4L19.08,3.5l1.4,1.43L17.65,7.75ZM19,13V11h4v2H19Zm0.07,7.48l-2.82-2.83l1.4-1.4l2.85,2.8l-1.43,1.43ZM6.35,7.75L3.53,4.93L4.95,3.5l2.8,2.85l-1.4,1.4ZM6,19h4.5q0.63,0 1.06-0.44T12,17.5t-0.42-1.06T10.53,16H9.25l-0.5-1.2q-0.35-0.82-1.1-1.31T6,13q-1.25,0-2.13,0.88T3,16t0.88,2.13T6,19Zm0,2q-2.07,0-3.54-1.46T1,16t1.46-3.54T6,11q1.5,0 2.74,0.81T10.58,14q1.45,0 2.44,1.07T14,17.65q-0.05,1.43-1.06,2.39T10.5,21H6Zm8-3.35q-0.13-0.5-0.25-0.97T13.5,15.7q1.13-0.47 1.81-1.47T16,12q0-1.65-1.17-2.83T12,8Q10.5,8 9.38,8.98T8.05,11.45q-0.5-0.13-1.03-0.22T6,11Q6.35,8.8 8.06,7.4Q9.78,6 12,6q2.5,0 4.25,1.75T18,12q0,1.92-1.1,3.46T14,17.65ZM12.03,12Z"/></svg><h1>Weather Dashboard</h1>
+            </div>
+        </div>
+      <div id="inputContainer">
+      <input type="text" id="inputLocation" placeholder="Enter your city " value="Long Beach"><button id="inputBtn" onclick="weatherFn($('#inputLocation').val())" >Submit</button>
+      </div>
+      </div>
+      <div id="bottom">
+        <div id="weather-info" class="animate__animated animate__fadeIn">
+          <h3 id="city-name"></h3><br>
+          <div>
+            <p id="temperature"></p>
+            <p id="description"></p>
+            <p id="wind-speed"></p>
+          </div>
+        </div>
+      </div>  
+    </div>
+    <script src=
+"https://momentjs.com/downloads/moment.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

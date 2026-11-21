@@ -20,7 +20,7 @@ const apiKey =
     'd49229d4581356165af86acbad7bddf5';
 
 $(document).ready(function() {
-    weatherFn('Long Beach'); // Set Long Beach as the initial city
+    weatherFn('Los Angeles'); // Set Long Beach as the initial city
 });
 
 async function weatherFn(cName) {

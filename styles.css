@@ -1,0 +1,158 @@
+:root {
+  --text: #FEFEFE;
+  --darktext: #415462;
+  --background: #EFEDEE;
+  --brown: #4C3D38;
+  --yellow: #FFDD00;
+  --white: #FEFDFE;
+  --green: #38A714;
+  --blue: #3BA3DF;
+  --lightblue: #72C0F0;
+}
+
+html, body {
+  font-size: 16px;
+  font-family: 'Unito', Arial, Helvetica, sans-serif;
+  color: var(--white);
+}
+
+#mainContainer {
+  width: 700px;
+  height: 450px;
+  background-color: var(--background);
+  border-radius: 60px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease-in-out;
+}
+
+#mainContainer:hover {
+  transform: translateY(-10px);
+}
+
+#top, #bottom {
+  padding: 20px 40px;
+}
+
+#top {
+  background-color: var(--blue);
+  border-radius: 60px 60px 0 0;
+}
+
+#bottom {
+  color: var(--darktext);
+  height: 240px;
+}
+
+
+#header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+#rightHeader {
+  text-align: right;
+  border-bottom: 8px solid var(--white);
+}
+
+/* Text Styling */
+h1 {
+  margin: 0;
+}
+
+#timeContainer {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  font-weight: 700;
+  gap: 10px;
+  align-items: center;
+}
+
+
+#currentDate {
+  background-color: var(--white);
+  padding: 8px 10px;
+  color: var(--blue);
+  border-radius: 50px;
+}
+
+
+#logo {
+  height: 30px;
+}
+
+#inputContainer {
+  margin: 45px auto 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#inputLocation{
+  padding: 12px 10px;
+  width: 300px;
+  border-radius: 20px;
+  margin-right: 10px;
+  border: none;
+}
+
+#inputBtn {
+  font-weight: 600;
+  padding: 12px 10px;
+  width: 140px;
+  border-radius: 20px;
+  background-color: var(--yellow);
+  color: var(--brown);
+  border: none;
+  transition-duration: 0.5s;
+}
+
+#inputBtn:hover {
+  background-color: var(--brown);
+  cursor: pointer;
+  border: none;
+  color: var(--white);
+}
+
+#weather-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#weather-info div {
+  display: flex;
+  flex-direction: row;
+  gap:35px;
+}
+
+#city-name {
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--darktext);
+}
+
+.animate__fadeIn {
+  animation: fadeIn 1.5s;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Web Responsiveness */ 
+@media screen and (max-width: 768px) {
+  /* Styles for screens up to 768px width */
+  #mainContainer {
+    width: 100%;
+    height: 100%;
+  }
+  h1 {
+    font-size: 1rem;
+  }
+}

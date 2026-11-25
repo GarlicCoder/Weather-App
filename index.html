@@ -13,31 +13,73 @@
   </head>
   <body>
     <div id="mainContainer">
+     
       <div id="top">
         <div id="header">
-          <div id="timeContainer"><span id="currentDate"></span><span id="currentTime"></span>
-          </div>
-          <div id="rightHeader"> 
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="95px" width="95px" fill="var(--text)"><path d="M11,5V1h2V5H11Zm6.65,2.75l-1.4-1.4L19.08,3.5l1.4,1.43L17.65,7.75ZM19,13V11h4v2H19Zm0.07,7.48l-2.82-2.83l1.4-1.4l2.85,2.8l-1.43,1.43ZM6.35,7.75L3.53,4.93L4.95,3.5l2.8,2.85l-1.4,1.4ZM6,19h4.5q0.63,0 1.06-0.44T12,17.5t-0.42-1.06T10.53,16H9.25l-0.5-1.2q-0.35-0.82-1.1-1.31T6,13q-1.25,0-2.13,0.88T3,16t0.88,2.13T6,19Zm0,2q-2.07,0-3.54-1.46T1,16t1.46-3.54T6,11q1.5,0 2.74,0.81T10.58,14q1.45,0 2.44,1.07T14,17.65q-0.05,1.43-1.06,2.39T10.5,21H6Zm8-3.35q-0.13-0.5-0.25-0.97T13.5,15.7q1.13-0.47 1.81-1.47T16,12q0-1.65-1.17-2.83T12,8Q10.5,8 9.38,8.98T8.05,11.45q-0.5-0.13-1.03-0.22T6,11Q6.35,8.8 8.06,7.4Q9.78,6 12,6q2.5,0 4.25,1.75T18,12q0,1.92-1.1,3.46T14,17.65ZM12.03,12Z"/></svg><h1>Weather Dashboard</h1>
+         
+          <div id="logoContainer"> 
+           <span id="weatherSvg" class="svg"></span>
+           <h1>Weather Dashboard</h1>
+            </div>
+            <div id="timeContainer"><span id="currentDate"></span><span id="currentTime"></span>
             </div>
         </div>
-      <div id="inputContainer">
-      <input type="text" id="inputLocation" placeholder="Enter your city " value="Los Angeles"><button id="inputBtn" onclick="weatherFn($('#inputLocation').val())" >Submit</button>
+      <div id="searchContainer">
+      <input type="text" id="cityInput" placeholder="Enter a city (Ex: Los Angeles) " value="Los Angeles">
+      <button id="searchBtn" class="btn">Submit</button>
+      <button id="locationBtn" class="btn"><span id="pinSvg" class="svg"></span></button>
       </div>
       </div>
       <div id="bottom">
-        <div id="weather-info" class="animate__animated animate__fadeIn">
-          <h3 id="city-name"></h3><br>
-          <div>
-            <p id="temperature"></p>
-            <p id="description"></p>
-            <p id="wind-speed"></p>
+        <div class="loading" id="loading">
+          <div class="loader"></div>
+          <p>Contacting our weather casters...</p>
+        </div>
+        <div id="weatherInfo">
+          <div id="weatherTop">
+              <div id="cityContainer">
+                  <h2 id="cityName"></h2>
+                    <!-- <button id="unitToggle" class="btn">Toggle Unit</button> -->
+            </div>
           </div>
+          <div id="weatherDataContainer">
+            <div id="today">
+              <h4>Today's Weather</h4>
+              <div id="today-item">
+                <img id="weatherIcon" alt="Weather icon">
+                <span id="temp"></span>
+                <p id="weatherDescr"></p>
+              </div>
+              <div id="statsContainer">
+                <div class="stats">
+                  <span class="bold"><span id="waterSvg" class="svg"></span> Humidity: </span>
+                  <span id="humidity"></span>
+                </div>
+                <div class="stats">
+                  <span class="bold"><span id="windSvg" class="svg"></span> Wind:</span>
+                  <span id="wind"></span>
+                </div>
+                <div class="stats">
+                  <span class="bold">
+                    <span id="tempSvg" class="svg"></span> Feels Like:</span>
+                  <span id="feelsLike"></span>
+                </div>
+                <div class="stats">
+                  <span class="bold"><span id="eyeSvg" class="svg"></span> Visibility: </span>
+                  <span id="visibility"></span></div>
+              </div>
+              </div>
+              
+           <div id="forecastContainer"><h4>Next Few Days...</h4><div id="forecast" class="forecast">
+          </div>
+            </div>
+            
+     
         </div>
       </div>  
     </div>
-    <script src=
-"https://momentjs.com/downloads/moment.min.js"></script>
+
+   
     <script src="script.js"></script>
   </body>
 </html>

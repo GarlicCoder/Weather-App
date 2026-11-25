@@ -1,5 +1,5 @@
+/* Default CSS */
 :root {
-  --text: #FEFEFE;
   --darktext: #415462;
   --background: #EFEDEE;
   --brown: #4C3D38;
@@ -10,42 +10,95 @@
   --lightblue: #72C0F0;
 }
 
-html, body {
+* {
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-size: 16px;
   font-family: 'Unito', Arial, Helvetica, sans-serif;
   color: var(--white);
+  min-height: 100vh;
 }
 
+/* Text Styling */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.svg {
+  fill: var(--brown);
+}
+
+/* Loaders */
+.loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  display: none;
+  color: var(--darktext)
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid var(--lightblue);
+  border-top-color: var(--blue);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+/* Main Container Styling*/
 #mainContainer {
   width: 700px;
-  height: 450px;
+  max-height: 720px;
   background-color: var(--background);
   border-radius: 60px;
   margin: 40px auto;
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease-in-out;
+  box-shadow: 5px 5px 25px 0px rgba(0, 0, 0, 0.08);
 }
 
 #mainContainer:hover {
   transform: translateY(-10px);
+  box-shadow: 5px 5px 25px 0px rgba(0, 0, 0, 0.10);
 }
 
-#top, #bottom {
-  padding: 20px 40px;
+#bottom {
+  padding: 20px 20px 40px;
 }
 
 #top {
-  background-color: var(--blue);
+  background-color: var(--lightblue);
   border-radius: 60px 60px 0 0;
+  padding: 40px 20px 40px 0;
 }
 
 #bottom {
   color: var(--darktext);
-  height: 240px;
 }
 
-
+/* Header inside #top Styling */
 #header {
   display: flex;
   flex-direction: row;
@@ -53,16 +106,18 @@ html, body {
   justify-content: space-between;
 }
 
-#rightHeader {
-  text-align: right;
-  border-bottom: 8px solid var(--white);
+#logoContainer {
+  text-align: left;
+  background-color: var(--blue);
+  padding: 20px 40px 20px 25px;
+  border-radius: 8px 50px 50px 0;
 }
 
-/* Text Styling */
-h1 {
-  margin: 0;
+#weatherSvg {
+  fill: var(--white);
 }
 
+/* Date and Time Styling */
 #timeContainer {
   display: flex;
   flex-direction: column;
@@ -72,7 +127,6 @@ h1 {
   align-items: center;
 }
 
-
 #currentDate {
   background-color: var(--white);
   padding: 8px 10px;
@@ -81,18 +135,15 @@ h1 {
 }
 
 
-#logo {
-  height: 30px;
-}
-
-#inputContainer {
+/* Input Styling */
+#searchContainer {
   margin: 45px auto 10px;
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-#inputLocation{
+#cityInput{
   padding: 12px 10px;
   width: 300px;
   border-radius: 20px;
@@ -100,7 +151,7 @@ h1 {
   border: none;
 }
 
-#inputBtn {
+.btn {
   font-weight: 600;
   padding: 12px 10px;
   width: 140px;
@@ -111,38 +162,166 @@ h1 {
   transition-duration: 0.5s;
 }
 
-#inputBtn:hover {
+.btn:hover {
   background-color: var(--brown);
   cursor: pointer;
   border: none;
-  color: var(--white);
+  color: var(--white); 
 }
 
-#weather-info {
+#locationBtn {
+  width: fit-content;
+  background-color: var(--green);
+  color: var(--white);
+  padding: 12px 10px;
+  margin-left: 5px;
+}
+
+#pinSvg {
+  fill: var(--white);
+}
+
+#locationBtn:hover {
+  background-color: var(--brown);
+}
+/* Weather Info Styling */
+#weatherInfo {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  align-content: center;
+  justify-content: space-evenly;
+    gap: 10px;
+  animation: fadeIn 2s ease;
+  flex-shrink: 1;
 }
 
-#weather-info div {
+/* Weather Top Styling */
+#weatherTop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#today-item, .forecast-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--white);
+  border-radius: 30px;
+  height: 100px;
+  width: 100px;
+  padding: 20px 18px;
+  border: 2px dashed var(--lightblue);
+}
+
+#today-item {
+  height: 140px;
+  width: 140px;
+}
+
+/* Weather Stats Styling */
+#today {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Weather Icon Styling */
+#today-item {
+  margin: 10px auto;
+}
+#weatherIcon {
+  width: 80px;
+  margin: 1px auto;
+}
+
+#temp {
+  font-size: 1.5rem;
+  color: var(--brown);
+  font-weight: 700;
+}
+
+#cityContainer {
+  text-align: center;
   display: flex;
   flex-direction: row;
-  gap:35px;
+  gap: 10px;
 }
 
-#city-name {
-  padding-bottom: 10px;
-  border-bottom: 2px solid var(--darktext);
+#cityName {
+  font-size: 1.5rem;
+  color: var(--white);
+  background-color: var(--blue);
+  padding: 12px 18px;
+  border-radius: 50px;
 }
 
-.animate__fadeIn {
-  animation: fadeIn 1.5s;
+#weatherDescr {
+  text-transform: capitalize;
+  font-size: 0.8rem;
 }
 
+/* Detail Styling */
+#weatherDetails {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 45px;
+}
+
+#statsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
+
+
+
+#weatherDataContainer {
+display: flex;
+flex-direction: row;
+gap: 35px;
+justify-content: space-evenly;
+align-content: center;
+align-items: center;
+
+}
+
+/* Forecast Styling */
+#forecastContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+}
+
+.forecast {
+ display: flex;
+ justify-content: center;
+ flex-wrap: wrap;
+ flex-direction: row;
+ gap: 10px;
+ max-width: 350px;
+ overflow-x: auto;
+}
+
+/* Load In Animation */
 @keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  } to {
+    opacity: 1;
+  }
 }
 
 /* Web Responsiveness */ 
@@ -154,5 +333,8 @@ h1 {
   }
   h1 {
     font-size: 1rem;
+  }
+  #bottom {
+    overflow-y: auto;
   }
 }
